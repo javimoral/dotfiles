@@ -1,20 +1,21 @@
 zstyle :compinstall filename '/home/javi/.zshrc'
 
 # zinit
-source ~/.zinit/bin/zinit.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
+# Save command history
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTSIZE=2000
 SAVEHIST=1000
-bindkey -v
+
+#bindkey -v
 
 # zinit plugins
 # Plugins
-export NVM_LAZY_LOAD=true
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
-zinit light lukechilds/zsh-nvm
 
 # zsh-history-substring-search
 bindkey $terminfo[kcuu1] history-substring-search-up
@@ -23,7 +24,8 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # zsh-completions
-fpath=(/home/javi/.zinit/plugins/zsh-users---zsh-completions/src $fpath)
+#fpath=(${ZINIT_HOME}/plugins/zsh-users--zsh-completions $fpath)
 
-#autoload -Uz compinit
-#compinit
+# https://stackoverflow.com/a/30840986
+autoload -Uz compinit
+compinit
