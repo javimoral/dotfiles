@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 end
 
@@ -36,9 +36,13 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-
+-- Rust
 require('lspconfig').rust_analyzer.setup {capabilities = capabilities, on_attach = on_attach}
+
+-- Python
 require('lspconfig').jedi_language_server.setup {capabilities = capabilities, on_attach = on_attach}
+require('lspconfig').ruff.setup {capabilities = capabilities, on_attach = on_attach}
+
 -- General Purpose Lang Server, used to linting & formatting
 -- https://github.com/mattn/efm-langserver
 require('lspconfig').efm.setup {
@@ -47,26 +51,10 @@ require('lspconfig').efm.setup {
     rootMarkers = {'.git/'},
     languages = {
       python = {
-        {formatCommand = 'black --quiet -', formatStdin = true},
-        {formatCommand = 'isort --quiet -', formatStdin = true},
-        {
-          lintCommand = 'pylint --init-hook="import pylint_venv; pylint_venv.inithook(force_venv_activation=True)" --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}',
-          lintStdin = false,
-          lintFormats = {'%f:%l:%c:%t:%m'},
-          lintOffsetColumns = 1,
-          lintCategoryMap = {
-            I = 'H',
-            R = 'I',
-            C = 'I',
-            W = 'W',
-            E = 'E',
-            F = 'E',
-          }
-        }
+	{formatCommand = 'ruff check --quiet --select I --fix -', formatStdin = true},
       }
     },
     filetypes = { 'python' }
   }
 }
-
 
