@@ -1,4 +1,4 @@
-zstyle :compinstall filename '/home/javi/.zshrc'
+zstyle :compinstall filename '${ZDOTDIR:-$HOME}.zshrc'
 
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -8,6 +8,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=2000
 SAVEHIST=1000
+
+# Options
+setopt append_history	# Allow multiple sessions to append to one history
+setopt share_history	# Share history among sessions
 
 # vi bindings
 bindkey -v
@@ -28,6 +32,18 @@ bindkey -M vicmd 'j' history-substring-search-down
 # zsh-completions
 #fpath=(${ZINIT_HOME}/plugins/zsh-users--zsh-completions $fpath)
 
+# Completion
 # https://stackoverflow.com/a/30840986
 autoload -Uz compinit
 compinit
+
+setopt complete_in_word # /u/loc/b<TAB> to /usr/local/bin
+
+zstyle ':completion:*' menu select 
+
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
