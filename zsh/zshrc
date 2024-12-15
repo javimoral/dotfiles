@@ -9,9 +9,11 @@ HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=2000
 SAVEHIST=1000
 
-# Options
-setopt append_history	# Allow multiple sessions to append to one history
-setopt share_history	# Share history among sessions
+# History Options
+setopt hist_find_no_dups	# Don't show duplicate entries while searching history
+setopt append_history		# Allow multiple sessions to append to one history
+setopt inc_append_history	# Write commands to history on-the-fly. Don't wait shell to exits 
+setopt share_history		# Share history among sessions
 
 # vi bindings
 bindkey -v
@@ -20,8 +22,8 @@ bindkey -v
 # Plugins
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit load 'zsh-users/zsh-history-substring-search'
-zinit ice wait atload'_history_substring_search_config'
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light 'zsh-users/zsh-history-substring-search'
 
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
@@ -38,6 +40,7 @@ autoload -Uz compinit
 compinit
 
 setopt complete_in_word # /u/loc/b<TAB> to /usr/local/bin
+setopt glob_dots
 
 zstyle ':completion:*' menu select 
 
