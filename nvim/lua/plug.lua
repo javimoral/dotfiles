@@ -3,11 +3,11 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin', vim.fn.stdpath 'data' .. '/plugged')
 Plug 'lifepillar/vim-solarized8'
 
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-fugitive'
 
 Plug 'nvim-lua/plenary.nvim'

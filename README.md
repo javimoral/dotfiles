@@ -7,6 +7,25 @@ Uses [zinit](https://github.com/zdharma-continuum/zinit?tab=readme-ov-file#zinit
 Uses [vim-plug](https://github.com/junegunn/vim-plug)
 
 ## Some notes to myself
+
+# Motions
+We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) which allows semantic motions like:
+
+| Keymap   | Motion    |
+| `af`     | Outer Function |
+| `if`     | Inner Function |
+| `ac`     | Outer Class    |
+| `ic`     | Inner Class    |
+
+Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plugin to comment code, with treesitter support, and we can comment using this movements.
+
+| Keymap   | Comment                                                          |
+| `gcc`    | Comments the current line - linewise comments (`// Comment`)     |
+| `gbc`    | Comments the current line - blockwise comments (`/* Comment */`) |
+| `gcaf`   | Comments the outer function - linewise comments                  |
+
+
+### About nvim variables and scopes
 | Prefix      | Scope            | Purpose                                    | Examples                                  |
 |-------------|------------------|--------------------------------------------|------------------------------------------|
 | `vim.o`     | Global Options   | Sets global editor options affecting all buffers and windows unless overridden locally. | `vim.o.number = true`, `vim.o.mouse = "a"` |

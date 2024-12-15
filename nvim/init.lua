@@ -44,10 +44,10 @@ vim.api.nvim_set_keymap("n", "<space>", "za", {noremap = true})
 vim.api.nvim_set_keymap("", "B", "^", {noremap = true})
 vim.api.nvim_set_keymap("", "^", "<nop>", {noremap = true})
 
-require('cfg-indent') -- indentLine
+require('cfg-ibl') -- Indent Blankline
 require('cfg-treesitter') -- nvim-treesitter/*
 require('cfg-lsp') -- lsp client
 require('cfg-telescope') -- telescope config
 require('cfg-cmp') -- Autocompletion
 require('cfg-hardline') -- Info Line
-
+require('cfg-comment') -- Comment.nvim
