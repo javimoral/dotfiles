@@ -43,9 +43,6 @@ vim.api.nvim_set_keymap("n", "<space>", "za", {noremap = true})
 -- Begin of line with B
 vim.api.nvim_set_keymap("", "B", "^", {noremap = true})
 vim.api.nvim_set_keymap("", "^", "<nop>", {noremap = true})
--- End of line with E
-vim.api.nvim_set_keymap("", "E", "$", {noremap = true})
-vim.api.nvim_set_keymap("", "$", "<nop>", {noremap = true})
 
 require('cfg-indent') -- indentLine
 require('cfg-treesitter') -- nvim-treesitter/*
