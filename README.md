@@ -39,6 +39,16 @@ Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plug
 | `gbc`    | Comments the current line - blockwise comments (`/* Comment */`) |
 | `gcaf`   | Comments the outer function - linewise comments                  |
 
+### Surround
+| Command                 | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `ds<surround>`          | **Delete** a surrounding character (e.g., `ds"` removes surrounding quotes). |
+| `cs<old><new>`          | **Change** surrounding characters (e.g., `cs"'` changes `"` to `'`).        |
+| `ys<motion><surround>`  | **Add** a surrounding character (e.g., `ysiw"` surrounds a word with `"`). Motion accepts treesitter textobjects. |
+| `yss<surround>`         | **Surround** an entire line (e.g., `yss"` surrounds the line with `"`).     |
+| `vS<surround>`          | Surround a visually-selected area (e.g., `vS"` surrounds selection with `"`). |
+
+
 
 ## Notes to myself
 
