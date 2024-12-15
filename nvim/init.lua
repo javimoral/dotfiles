@@ -28,8 +28,6 @@ vim.api.nvim_set_keymap("n", "<leader>n", ":lua vim.wo.relativenumber = not vim.
 
 vim.o.mouse = "nv"
 
-vim.o.listchars = "tab:⇥⇥,eol:↵"
-
 -- Folding
 vim.wo.foldenable = true
 -- By default starts folding all the file

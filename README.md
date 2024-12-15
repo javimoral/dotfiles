@@ -6,9 +6,18 @@ Uses [zinit](https://github.com/zdharma-continuum/zinit?tab=readme-ov-file#zinit
 ## nvim
 Uses [vim-plug](https://github.com/junegunn/vim-plug)
 
-## Some notes to myself
+## Cheatsheet
 
-# Motions
+### Indentation
+Using [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) for showing indentation. We've setup different characters for indentation using spaces or tabs.
+
+| Indent Character | Indicator |
+| Space | `│`|
+| Tab   | `┆`|
+
+Also, using `scope` to highlight current scope with a bold character.
+
+### Motions
 We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) which allows semantic motions like:
 
 | Keymap   | Motion    |
@@ -25,6 +34,8 @@ Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plug
 | `gcaf`   | Comments the outer function - linewise comments                  |
 
 
+## Notes to myself
+
 ### About nvim variables and scopes
 | Prefix      | Scope            | Purpose                                    | Examples                                  |
 |-------------|------------------|--------------------------------------------|------------------------------------------|
@@ -39,3 +50,7 @@ Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plug
 | `vim.v`     | Built-in Vars    | Read-only variables for internal states or results of operations. | `vim.v.count`, `vim.v.version`           |
 | `vim.opt`   | Unified Interface| Modern interface for setting options, supporting explicit scope prefixes like `global`, `win`, or `buf`. | `vim.opt.number = true`, `vim.opt_global.mouse = "a"` |
 
+
+### Highlight groups
+
+While configuring `indent-blankline` I've stumbled upon Highlight gruops, a way of configuring the presentation of the text.
