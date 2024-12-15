@@ -51,3 +51,4 @@ require('cfg-telescope') -- telescope config
 require('cfg-cmp') -- Autocompletion
 require('cfg-hardline') -- Info Line
 require('cfg-comment') -- Comment.nvim
+require('cfg-colorizer') -- nvim-colorizer
