@@ -11,8 +11,8 @@ Plug 'numToStr/Comment.nvim'               -- Comment / uncomment source code us
 Plug 'tpope/vim-fugitive'                  -- Git integration
 Plug 'lukas-reineke/indent-blankline.nvim' -- Marks indentation
 Plug 'norcalli/nvim-colorizer.lua'         -- Shows RGB colors while editing HTML/CSS
-Plug 'preservim/nerdtree'                  -- File navigation
-Plug 'ryanoasis/vim-devicons'              -- Complement to nerdtree. Show filetype icons next to filenames in NerdTree
+Plug 'nvim-tree/nvim-tree.lua'             -- File navigation
+Plug 'nvim-tree/nvim-web-devicons'         -- Show filetype icons next to filenames in nvim-tree, Telescope, etc.
 Plug 'cohama/lexima.vim'                   -- Auto-close parentheses, brackets, etc.
 Plug 'ojroques/nvim-hardline'              -- Navigation line
 

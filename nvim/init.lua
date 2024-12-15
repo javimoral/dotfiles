@@ -1,4 +1,9 @@
 require('plug') -- vim-plug
+
+-- Disabling netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Leader
 vim.g.mapleader = ","
 
@@ -42,6 +47,7 @@ vim.api.nvim_set_keymap("n", "<space>", "za", {noremap = true})
 vim.api.nvim_set_keymap("", "B", "^", {noremap = true})
 vim.api.nvim_set_keymap("", "^", "<nop>", {noremap = true})
 
+require('cfg-webicons') -- nvim-dev-webicons
 require('cfg-ibl') -- Indent Blankline
 require('cfg-treesitter') -- nvim-treesitter/*
 require('cfg-lsp') -- lsp client
@@ -50,3 +56,4 @@ require('cfg-cmp') -- Autocompletion
 require('cfg-hardline') -- Info Line
 require('cfg-comment') -- Comment.nvim
 require('cfg-colorizer') -- nvim-colorizer
+require('cfg-nvimtree') -- nvim-tree
