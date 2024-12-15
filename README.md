@@ -15,6 +15,7 @@ Take a look at `zsh/nvim/lua/plug.lua` each pluging has a comment next to it des
 Using [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) for showing indentation. We've setup different characters for indentation using spaces or tabs.
 
 | Indent Character | Indicator |
+|------------------|-----------|
 | Space | `│`|
 | Tab   | `┆`|
 
@@ -24,6 +25,7 @@ Also, using `scope` to highlight current scope with a bold character.
 We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) which allows semantic motions like:
 
 | Keymap   | Motion    |
+|----------|-----------|
 | `af`     | Outer Function |
 | `if`     | Inner Function |
 | `ac`     | Outer Class    |
@@ -32,6 +34,7 @@ We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter
 Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plugin to comment code, with treesitter support, and we can comment using this movements.
 
 | Keymap   | Comment                                                          |
+|----------|------------------------------------------------------------------|
 | `gcc`    | Comments the current line - linewise comments (`// Comment`)     |
 | `gbc`    | Comments the current line - blockwise comments (`/* Comment */`) |
 | `gcaf`   | Comments the outer function - linewise comments                  |
