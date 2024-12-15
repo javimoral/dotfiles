@@ -6,6 +6,9 @@ Uses [zinit](https://github.com/zdharma-continuum/zinit?tab=readme-ov-file#zinit
 ## nvim
 Uses [vim-plug](https://github.com/junegunn/vim-plug)
 
+### Plugins
+Take a look at `zsh/nvim/lua/plug.lua` each pluging has a comment next to it describing it's use.
+
 ## Cheatsheet
 
 ### Indentation
@@ -53,4 +56,4 @@ Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plug
 
 ### Highlight groups
 
-While configuring `indent-blankline` I've stumbled upon Highlight gruops, a way of configuring the presentation of the text.
+While configuring `indent-blankline` I've learned about Highlight gruops, a way of configuring the presentation of the text.

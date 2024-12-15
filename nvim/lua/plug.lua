@@ -1,33 +1,39 @@
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', vim.fn.stdpath 'data' .. '/plugged')
+-- Theme
 Plug 'lifepillar/vim-solarized8'
 
-Plug 'lukas-reineke/indent-blankline.nvim'
+-- General Plugins
+Plug 'tpope/vim-surround'                  -- Surround textobjects with puntuaction marks (parentheses, brackets, quotes, etc.)
+Plug 'tpope/vim-repeat'                    -- Allows to use repeat command with vim-surround
+Plug 'numToStr/Comment.nvim'               -- Comment / uncomment source code using text objects
+Plug 'tpope/vim-fugitive'                  -- Git integration
+Plug 'lukas-reineke/indent-blankline.nvim' -- Marks indentation
+Plug 'norcalli/nvim-colorizer.lua'         -- Shows RGB colors while editing HTML/CSS
+Plug 'preservim/nerdtree'                  -- File navigation
+Plug 'ryanoasis/vim-devicons'              -- Complement to nerdtree. Show filetype icons next to filenames in NerdTree
+Plug 'cohama/lexima.vim'                   -- Auto-close parentheses, brackets, etc.
+Plug 'ojroques/nvim-hardline'              -- Navigation line
 
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'numToStr/Comment.nvim'
-Plug 'tpope/vim-fugitive'
-
+-- Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'norcalli/nvim-colorizer.lua'
 
+-- Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
-Plug 'neovim/nvim-lspconfig'
+-- Snippets
 Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
 
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'cohama/lexima.vim'
-Plug 'ojroques/nvim-hardline'
+-- LSP Setup
+Plug 'neovim/nvim-lspconfig'    -- LSP Configs
+Plug 'hrsh7th/nvim-cmp'         -- Completion Engine
+Plug 'hrsh7th/cmp-nvim-lsp'     -- Completion source: LSP
+Plug 'hrsh7th/cmp-buffer'       -- Compleiton source: Words from buffer
+Plug 'hrsh7th/cmp-path'         -- Completion source: Paths
+Plug 'saadparwaiz1/cmp_luasnip' -- Completion source: Snippets (from LuaSnip)
+
 vim.call('plug#end')
