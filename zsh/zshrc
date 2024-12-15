@@ -4,6 +4,9 @@ zstyle :compinstall filename '${ZDOTDIR:-$HOME}.zshrc'
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Options
+setopt autocd
+
 # Save command history
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=2000
