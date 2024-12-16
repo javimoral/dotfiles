@@ -35,7 +35,9 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # zsh-completions
-#fpath=(${ZINIT_HOME}/plugins/zsh-users--zsh-completions $fpath)
+# While using Homebrew, tools like uv or cargo install completions in the fpath.
+# If these tools are installed manually, we must add these completions on our own.
+fpath=(${XDG_DATA_HOME}:-${HOME}/.local/share/zsh/zfunc $fpath)
 
 # Completion
 # https://stackoverflow.com/a/30840986
