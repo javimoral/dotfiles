@@ -3,6 +3,9 @@ zstyle :compinstall filename '${ZDOTDIR:-$HOME}.zshrc'
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
 
 # Options
 setopt autocd
@@ -23,10 +26,13 @@ bindkey -v
 
 # zinit plugins
 # Plugins
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light 'zsh-users/zsh-history-substring-search'
+zinit ice wait
+zinit load zsh-users/zsh-completions
+zinit ice wait
+zinit load zsh-users/zsh-autosuggestions
+zinit ice wait
+zinit load zdharma-continuum/fast-syntax-highlighting
+zinit load zsh-users/zsh-history-substring-search
 
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
@@ -55,3 +61,13 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
 zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*' group-name ''
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
