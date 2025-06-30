@@ -44,8 +44,8 @@ vim.api.nvim_set_keymap("n", "<space>", "za", {noremap = true})
 
 -- Movement
 -- Begin of line with B
-vim.api.nvim_set_keymap("", "B", "^", {noremap = true})
-vim.api.nvim_set_keymap("", "^", "<nop>", {noremap = true})
+--vim.api.nvim_set_keymap("", "B", "^", {noremap = true})
+--vim.api.nvim_set_keymap("", "^", "<nop>", {noremap = true})
 
 require('cfg-webicons') -- nvim-dev-webicons
 require('cfg-ibl') -- Indent Blankline
@@ -56,4 +56,3 @@ require('cfg-cmp') -- Autocompletion
 require('cfg-hardline') -- Info Line
 require('cfg-comment') -- Comment.nvim
 require('cfg-colorizer') -- nvim-colorizer
-require('cfg-nvimtree') -- nvim-tree

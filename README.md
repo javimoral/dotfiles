@@ -11,6 +11,10 @@ Take a look at `zsh/nvim/lua/plug.lua` each pluging has a comment next to it des
 
 ## Cheatsheet
 
+| Shortcut | Action |
+| -------- | ------ |
+| `<Ctrl>+c` in insert mode | Backs to normal mode |
+
 ### Indentation
 Using [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) for showing indentation. We've setup different characters for indentation using spaces or tabs.
 
@@ -30,6 +34,7 @@ We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter
 | `if`     | Inner Function |
 | `ac`     | Outer Class    |
 | `ic`     | Inner Class    |
+| `ib`     | Inner Block (can be between parenthesis) |
 
 Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plugin to comment code, with treesitter support, and we can comment using this movements.
 
