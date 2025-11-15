@@ -39,15 +39,20 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Rust
-require('lspconfig').rust_analyzer.setup {capabilities = capabilities, on_attach = on_attach}
+vim.lsp.config('rust_analyzer', {capabilities = capabilities, on_attach = on_attach})
+--vim.lsp.enable('rust_analyzer')
 
 -- Python
-require('lspconfig').jedi_language_server.setup {capabilities = capabilities, on_attach = on_attach}
-require('lspconfig').ruff.setup {capabilities = capabilities, on_attach = on_attach}
+vim.lsp.config('jedi_language_server', {capabilities = capabilities, on_attach = on_attach})
+vim.lsp.enable('jedi_language_server')
+vim.lsp.config('ruff', {capabilities = capabilities, on_attach = on_attach})
+vim.lsp.enable('ruff')
+vim.lsp.config('ty', {capabilities = capabilities, on_attach = on_attach})
+vim.lsp.enable('ty')
 
 -- General Purpose Lang Server, used to linting & formatting
 -- https://github.com/mattn/efm-langserver
-require('lspconfig').efm.setup {
+vim.lsp.config('efm', {
   init_options = {documentFormatting = true},
   settings = {
     rootMarkers = {'.git/'},
@@ -58,5 +63,5 @@ require('lspconfig').efm.setup {
     },
     filetypes = { 'python' }
   }
-}
-
+})
+vim.lsp.enable('efm')
