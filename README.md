@@ -28,6 +28,8 @@ Also, using `scope` to highlight current scope with a bold character.
 ### Motions
 We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) which allows semantic motions like:
 
+BROKEN. FIX LATER.
+
 | Keymap   | Motion    |
 |----------|-----------|
 | `af`     | Outer Function |
