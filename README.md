@@ -28,7 +28,6 @@ Also, using `scope` to highlight current scope with a bold character.
 ### Motions
 We've installed [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) which allows semantic motions like:
 
-BROKEN. FIX LATER.
 
 | Keymap   | Motion    |
 |----------|-----------|
@@ -82,3 +81,58 @@ Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plug
 ### Highlight groups
 
 While configuring `indent-blankline` I've learned about Highlight gruops, a way of configuring the presentation of the text.
+
+### treesitter, folding and indent
+
+(n)vim can control indentation and folding evaluationg expressions. `vim.wo.foldexpr` dictates the expression to get folding. In a similar fashion, `vim.bo.indentexpr` set the expression for indentation.
+
+Latest versions of nvim have built-in tree-sitter library support, leaving `nvim-treesitter` plugin for parser installation and some experimental features (indent). Thus, treesitter config is no longer from this pluging, but, as docs suggest, using `autocmd` with `FileType` events.
+
+```lua
+local treesitter_au = vim.api.nvim_create_augroup('treesitter', { clear = true } )
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { 'python'  },
+	group = treesitter_au,
+	callback = function() 
+		vim.treesitter.start()
+		vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+		vim.wo.foldmethod = 'expr'
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
+```
+
+If we configure foldexpr globally, using `vim.opt.foldexpr` any FileType will try to use treesiter foldexpr, even if no syntax is installed, making folding unusable.
+
+With this approach, we ensure a fallback to `foldmethod=syntax` if no tree-sitter syntax is found.
+
+I've created an `FileType` autocmd for python files so I can launch treesitter and configure `foldexpr` and `indentexpr`.
+
+To check this expressions, we can use:
+```vim
+:set foldexpr?
+:set indentexpr?
+```
+
+#### Why closing parenthesis, brackets, and so on are indented wrong
+
+Closing punctuation marks in python are indented to the same level as the opening one, instead of the belonging statement. 
+
+```python
+my_list = [
+	"abc",
+	"cba"
+	]
+```
+
+It seems like a problem with Vims default `indentepxr` for Python `python#GetIndent(v:lnum)`
+
+If we disable this indentation (with `:set indentexpr=`) or set up to `nvim-treesitter` indentexpr() this closing mark is at the same level at the statement:
+
+```python
+my_list = [
+	"abc",
+	"cba"
+]
+```
+

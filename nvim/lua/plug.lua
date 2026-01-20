@@ -22,7 +22,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 -- Treesitter
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+vim.call('plug#', 'nvim-treesitter/nvim-treesitter-textobjects', { branch = 'main' })
 
 -- Snippets
 Plug 'L3MON4D3/LuaSnip'
