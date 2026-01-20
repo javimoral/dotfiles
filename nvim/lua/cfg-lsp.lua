@@ -41,12 +41,10 @@ vim.lsp.config('rust_analyzer', { capabilities = capabilities, on_attach = on_at
 --vim.lsp.enable('rust_analyzer')
 
 -- Python
-vim.lsp.config('jedi_language_server', { capabilities = capabilities, on_attach = on_attach })
-vim.lsp.enable('jedi_language_server')
+vim.lsp.config('basedpyright', { capabilities = capabilities, on_attach = on_attach })
+vim.lsp.enable('basedpyright')
 
 vim.lsp.config('ruff', { capabilities = capabilities, on_attach = on_attach })
 vim.lsp.enable('ruff')
 
-vim.lsp.config('ty', { capabilities = capabilities, on_attach = on_attach })
-vim.lsp.enable('ty')
 
