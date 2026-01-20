@@ -54,12 +54,6 @@ Combine it with [Comment.nvim](https://github.com/numToStr/Comment.nvim), a plug
 | `yss<surround>`         | **Surround** an entire line (e.g., `yss"` surrounds the line with `"`).     |
 | `vS<surround>`          | Surround a visually-selected area (e.g., `vS"` surrounds selection with `"`). |
 
-### nvim-tree
-| Command        | Description       |
-|----------------|-------------------|
-| `<leader>nv`   | Toggles nvim-tree |
-
-
 
 ## Notes to myself
 
